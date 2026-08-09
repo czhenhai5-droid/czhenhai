@@ -1,0 +1,33 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+
+proxies:
+  - name: "-poplar-198.65.8.43"
+    type: vless
+    server: 179.253.244.97
+    port: 443
+    uuid: f08c5ab7-04fd-4fbb-a476-f95376b6570f
+    encryption: ""
+    udp: true
+    tls: true
+    network: tcp
+    servername: www.apple.com
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: jxnZteDbQXiFs1FPGIch6L0lLY1kTIRFiqjnvrImP2M
+      short-id: 869aea7a29
+      spider-x: "/9TZSXIT7EWlGxT6"
+    smux:
+      enabled: false
+
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "-poplar-198.65.8.43"
+      - DIRECT
+
+rules:
+  - MATCH,PROXY
