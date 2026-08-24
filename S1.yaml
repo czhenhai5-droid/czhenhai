@@ -1,0 +1,33 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+
+proxies:
+  - name: "198.65.107.224-Chen-美国3"
+    type: vless
+    server: 179.255.113.235
+    port: 443
+    uuid: 85909c9f-3efd-4808-931c-248bda6990e8
+    encryption: ""
+    udp: true
+    tls: true
+    network: tcp
+    servername: amzn.com
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: NhhOxoFsyU6mkzRgYsrUtKyhMv_wqPF1IMECkNrBww4
+      short-id: 0766cd40cc005d87
+      spider-x: "/6b9e0be50242391"
+    smux:
+      enabled: false
+
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "198.65.107.224-Chen-美国3"
+      - DIRECT
+
+rules:
+  - MATCH,PROXY
