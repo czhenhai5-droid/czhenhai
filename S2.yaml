@@ -1,0 +1,33 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+
+proxies:
+  - name: "207.168.117.41-南风未起-美国"
+    type: vless
+    server: 179.255.113.235
+    port: 443
+    uuid: 0a9481c2-5c68-47f8-803b-42dc0f96c091
+    encryption: ""
+    udp: true
+    tls: true
+    network: tcp
+    servername: mp3recs.amazon.com
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: NhhOxoFsyU6mkzRgYsrUtKyhMv_wqPF1IMECkNrBww4
+      short-id: ecf650ce91
+      spider-x: "/4fae11121fa0d22"
+    smux:
+      enabled: false
+
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "207.168.117.41-南风未起-美国"
+      - DIRECT
+
+rules:
+  - MATCH,PROXY
