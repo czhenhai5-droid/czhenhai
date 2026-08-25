@@ -1,0 +1,33 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+
+proxies:
+  - name: "204.252.80.221-ver2"
+    type: vless
+    server: 179.255.113.235
+    port: 443
+    uuid: cd5e6530-84d6-42b5-8e98-6de5264aa9b3
+    encryption: ""
+    udp: true
+    tls: true
+    network: tcp
+    servername: www.cdn.amazon.com
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: NhhOxoFsyU6mkzRgYsrUtKyhMv_wqPF1IMECkNrBww4
+      short-id: ecf650ce91
+      spider-x: "/9dca60d6fefc8fc"
+    smux:
+      enabled: false
+
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "204.252.80.221-ver2"
+      - DIRECT
+
+rules:
+  - MATCH,PROXY
