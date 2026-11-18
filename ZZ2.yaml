@@ -1,0 +1,33 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+
+proxies:
+  - name: "-zzzz-45.134.92.183"
+    type: vless
+    server: jintu.win
+    port: 443
+    uuid: c90b476d-131e-401a-9472-f7cd407e5e36
+    encryption: ""
+    udp: true
+    tls: true
+    network: tcp
+    servername: example.com
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: G_bw9uKy1NkBRM07vIvxt45jyWS5okRJCSp8BGvjYQU
+      short-id: 31e8fe455a69
+      spider-x: "/j1vqW2ffzERFH5m"
+    smux:
+      enabled: false
+
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "-zzzz-45.134.92.183"
+      - DIRECT
+
+rules:
+  - MATCH,PROXY
