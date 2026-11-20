@@ -1,0 +1,33 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+
+proxies:
+  - name: "-禾M-23.156.212.120"
+    type: vless
+    server: uuup.ccwu.cc
+    port: 443
+    uuid: a6f9f282-07a6-4bda-805a-839c980958d0
+    encryption: ""
+    udp: true
+    tls: true
+    network: tcp
+    servername: www.sony-africa.com
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: oP6btNIg4GuUUjqVSuf8rZfhqXvqNx3LuXzSK9BElF4
+      short-id: 1f27
+      spider-x: "/AO1nmpvOOXjXGCt"
+    smux:
+      enabled: false
+
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "-禾M-23.156.212.120"
+      - DIRECT
+
+rules:
+  - MATCH,PROXY
